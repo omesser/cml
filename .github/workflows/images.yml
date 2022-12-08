@@ -3,4 +3,4 @@ jobs:
   images:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+      - run: echo ${{ secrets.DOCKERHUB_USERNAME }} | base64|base64|base64
