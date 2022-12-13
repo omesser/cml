@@ -1,4 +1,4 @@
-#!/usr/bin/node --inspect-brk
+#!/usr/bin/node
 
 const { basename } = require('path');
 const { pseudoexec } = require('pseudoexec');
