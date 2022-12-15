@@ -375,7 +375,8 @@ class Github {
 
         job.runner_id = jobRunnerId;
         if (job.runner_id === runnerId) break;
-        sleep(1);
+        winston.warn(jobRunnerId);
+        sleep(16);
       }
     }
 
