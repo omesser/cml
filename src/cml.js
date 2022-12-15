@@ -422,9 +422,16 @@ class CML {
           log.pipeline = parseId('pipeline');
 
           if (name && this.driver === GITHUB) {
-            const { id: runnerId } = await this.runnerByName({ name });
-            const { id } = await driver.runnerJob({ runnerId });
-            log.job = id;
+            while (true) {
+              const { id: runnerId } = await this.runnerByName({ name });
+              try {
+                const { id } = await driver.runnerJob({ runnerId });
+                log.job = id;
+                break;
+              } catch {
+                await new Promise((resolve) => setTimeout(resolve, 4000));
+              }
+            }
           }
         }
 
